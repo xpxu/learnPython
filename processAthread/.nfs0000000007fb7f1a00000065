@@ -1,0 +1,20 @@
+import java.lang.Thread;
+import java.util.Runtime;
+
+class MyThread extends Thread {
+   x = 0;
+   public void run(){
+	while(1){
+	    x = x ^ 1;
+	} 
+   }
+}
+
+public class deadloop {
+    public static void main(string[] args) throws Exception{
+        for (int i =0; i<Runtime.getRuntime().availableProcessors(); i++){
+            Thread myThread = new MyThread();
+            myTread.start();            
+        }
+    }
+}
