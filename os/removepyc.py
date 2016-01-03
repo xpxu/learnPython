@@ -1,8 +1,8 @@
 from glob import glob
-import os
+import os,sys
 
 def removepyc():
-    filelist =  glob('/home/xpxu/tmp_use/test/os/tmp/*.pyc') 
+    filelist =  [x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.pyc']
     for i in filelist:
         os.remove(i)
 
