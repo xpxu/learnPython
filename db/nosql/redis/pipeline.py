@@ -1,0 +1,10 @@
+import redis
+r = redis.Redis(host='localhost', port = 6379, db=0)
+p = r.pipeline()
+p.set('hello','redis')
+p.sadd('faz','baz')
+p.incr('num')
+print p.execute()
+print r.get('hello')
+print r.get('num')
+r.flushdb()

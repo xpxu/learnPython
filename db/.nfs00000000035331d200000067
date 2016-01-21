@@ -1,9 +1,0 @@
--- init database
-
-drop database if exist test;
-
-create database test;
-
-use
-create table user (
-
