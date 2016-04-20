@@ -1,3 +1,3 @@
 git add -A
-git commit -m 'add new example'
+git commit -m $*
 git push origin
