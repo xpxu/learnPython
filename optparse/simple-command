@@ -6,7 +6,7 @@ def main():
     usage = "usage: %prog [options]"
     parser = OptionParser(usage)
     parser.add_option("-d", "--debug",help="Debug mode",
-                      action="store_true", dest="debug")
+                      action="store_true")
     parser.add_option("-a", "--all", help='Generate swagger API definition for all nimbula API', action="store_true", dest="all")
     (options, args) = parser.parse_args()
     if len(args) != 0:
