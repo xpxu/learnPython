@@ -14,7 +14,8 @@ def main():
     if options.debug:
         print "In Debug mode"
     if options.all:
-        print "In All mode"
+        print "In All mode" 
+
 
 if __name__ == "__main__":
     main()
