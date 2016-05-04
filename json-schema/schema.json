@@ -1,0 +1,673 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "pod config",
+  "description": "pod config",
+  "properties": {
+    "config_prod_options": {
+      "type": "object",
+      "properties": {
+        "post_config_json": {
+          "type": "object",
+          "properties": {}
+        },
+        "include_options": {
+          "type": "string"
+        },
+        "exclude_options": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "post_config_json",
+        "include_options",
+        "exclude_options"
+      ]
+    },
+    "site_type": {
+      "type": "string"
+    },
+    "install_json": {
+      "type": "object",
+      "properties": {
+        "controlplane_ilom": {
+          "type": "array",
+          "items": {
+              "type": "string"
+            }
+        },
+        "site_name": {
+          "type": "string"
+        },
+        "seed_gateway": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+        },
+        "instance_subnet": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})(\\/)(\\d{1,2})$"
+        },
+        "pxe_ip": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+        },
+        "guest_subnet": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})(\\/)(\\d{1,2})$"
+        },
+        "external_dns": {
+          "type": "array",
+          "items": {
+              "type": "string",
+              "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+            }
+        },
+        "nodeuser": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string"
+            },
+            "user": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "integer"
+            }
+          }
+        },
+        "dns_primary_ip": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+        },
+        "seed_ilom": {
+          "type": "string"
+        },
+        "default_ilom_password": {
+          "type": "string"
+        },
+        "node_ilom": {
+          "type": "array",
+          "items": {
+              "type": "string"
+            }
+        },
+        "seed_ip_addr": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})(\\/)(\\d{1,2})$"
+        },
+        "controlplane_subnet": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})(\\/)(\\d{1,2})$"
+        },
+        "siteconf": {
+          "type": "object",
+          "properties": {
+            "services": {
+              "type": "object",
+              "properties": {
+                "admin_api": {
+                  "type": "object",
+                  "properties": {
+                    "ip": {
+                      "type": "string",
+                      "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+                    }
+                  }
+                },
+                "api": {
+                  "type": "object",
+                  "properties": {
+                    "request_limits": {
+                      "type": "object",
+                      "properties": {
+                        "read": {
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "write": {
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "burst_count": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "oracle_nosql": {
+                  "type": "object",
+                  "properties": {
+                    "exclude_zk": {
+                      "type": "string"
+                    },
+                    "number_of_shards": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "dns": {
+                  "type": "object",
+                  "properties": {
+                    "default_authority": {
+                      "type": "string"
+                    },
+                    "public_dnszone": {
+                      "type": "string"
+                    },
+                    "monitor_label": {
+                      "type": "string"
+                    },
+                    "api_dnszone": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "bnet": {
+                  "type": "object",
+                  "properties": {
+                    "nat": {
+                      "type": "object",
+                      "properties": {
+                        "mechanism": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "sudoers": {
+              "type": "object",
+              "properties": {
+                "nimbulaadmin": {
+                  "type": "object",
+                  "properties": {
+                    "commands": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "runas": {
+                      "type": "string"
+                    },
+                    "user": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "security": {
+              "type": "object",
+              "properties": {
+                "guest_control_plane_access": {
+                  "type": "string"
+                },
+                "vnc_access": {
+                  "type": "string"
+                },
+                "acls": {
+                  "type": "object",
+                  "properties": {
+                    "dns": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "network": {
+              "type": "object",
+              "properties": {
+                "clusters": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "patternProperties": {
+                    "^(\\d{1,3}\\.){3}(\\d{1,3})(\\/)(\\d{1,2})$": {
+                      "type": "object",
+                      "properties": {
+                        "dhcpstart": {
+                          "type": "string",
+                          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+                        },
+                        "interface_config": {
+                          "type": "object",
+                          "properties": {
+                            "framesize_vm": {
+                              "type": "integer"
+                            },
+                            "framesize": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "adminaddr": {
+                          "type": "string",
+                          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+                        },
+                        "dhcpend": {
+                          "type": "string",
+                          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+                        },
+                        "api_dns_ips": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+                          }
+                        },
+                        "dns_ips": {
+                          "type": "array",
+                          "items":{
+                            "type": "string",
+                            "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "profiles": {
+              "additionalProperties": true,
+              "type": "object",
+              "properties": {
+                "volumes": {
+                  "type": "object",
+                  "properties": {
+                    "node_volumes": {
+                      "type": "object",
+                      "properties": {
+                        "distributedfilestore": {
+                          "type": "object",
+                          "properties": {
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "ephemeralstore": {
+                          "type": "object",
+                          "properties": {
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "metadatastore": {
+                          "type": "object",
+                          "properties": {
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "monitoring": {
+                          "type": "object",
+                          "properties": {
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "swap": {
+                          "type": "object",
+                          "properties": {
+                            "minsize": {
+                              "type": "string"
+                            },
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "synchronizationservice": {
+                          "type": "object",
+                          "properties": {
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "systemdatabase": {
+                          "type": "object",
+                          "properties": {
+                            "maxsize": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "patternProperties": {
+                "default|control_plane_nodes": {
+                  "type": "object",
+                  "properties": {
+                    "dom0": {
+                      "type": "object",
+                      "properties": {
+                        "reservations": {
+                          "type": "object",
+                          "properties": {
+                            "vcpus": {
+                              "type": "integer"
+                            },
+                            "ram": {
+                              "type": "integer"
+                            },
+                            "vcpu_weight": {
+                              "type": "string"
+                            },
+                            "vcpu_pinning": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "monitoring": {
+                      "type": "object",
+                      "properties": {
+                        "logging": {
+                          "type": "object",
+                          "properties": {
+                            "remote_elastic_search": {
+                              "type": "object",
+                              "properties": {
+                                "zone": {
+                                  "type": "string"
+                                },
+                                "enabled": {
+                                  "type": "string"
+                                },
+                                "dc": {
+                                  "type": "string"
+                                },
+                                "server": {
+                                  "type": "string"
+                                },
+                                "serverport": {
+                                  "type": "string"
+                                },
+                                "rack": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "admin_cluster": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})(\\/)(\\d{1,2})$"
+        },
+        "seed_recycle": {
+          "type": "boolean"
+        },
+        "ntp_servers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+          }
+        },
+        "default_ilom_user": {
+          "type": "string"
+        },
+        "api_addr": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3})$"
+        },
+        "admin_email": {
+          "type": "string"
+        },
+        "root_password": {
+          "type": "string"
+        }
+      }
+    },
+    "verify_json": {
+      "type": "object",
+      "required": [
+          "admin",
+          "nodeuser",
+          "root_password",
+          "root_user"
+      ],
+      "properties": {
+        "admin": {
+          "type": "string",
+          "pattern": "^http://(\\d{1,3}\\.){3}(\\d{1,3}):(\\d{1,5})$"
+        },
+        "nodeuser": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string"
+            },
+            "user": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "integer"
+            }
+          }
+        },
+        "root_password": {
+          "type": "string"
+        },
+        "root_user": {
+          "type": "string"
+        }
+      }
+    },
+    "patch_json": {
+      "type": "object",
+      "required": [
+          "admin",
+          "nodeuser",
+          "root_password",
+          "root_user"
+      ],
+      "properties": {
+        "admin": {
+          "type": "string",
+          "pattern": "^http://(\\d{1,3}\\.){3}(\\d{1,3}):(\\d{1,5})$"
+        },
+        "nodeuser": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string"
+            },
+            "user": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "integer"
+            }
+          }
+        },
+        "root_password": {
+          "type": "string"
+        },
+        "root_user": {
+          "type": "string"
+        }
+      }
+    },
+    "update_json": {
+      "type": "object",
+      "required": [
+          "admin",
+          "nodeuser",
+          "root_password",
+          "root_user"
+      ],
+      "properties": {
+        "snapshot_url": {
+          "type": "string",
+          "pattern": "^http://(\\d{1,3}\\.){3}(\\d{1,3})"
+        },
+        "admin": {
+          "type": "string",
+          "pattern": "^http://(\\d{1,3}\\.){3}(\\d{1,3}):(\\d{1,5})$"
+        },
+        "nodeuser": {
+          "type": "object",
+          "properties": {
+            "password": {
+              "type": "string"
+            },
+            "user": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "integer"
+            }
+          }
+        },
+        "root_password": {
+          "type": "string"
+        },
+        "root_user": {
+          "type": "string"
+        },
+        "upgrade.conf": {
+          "type": "object",
+          "properties": {
+            "services": {
+              "type": "object",
+              "properties": {
+                "api": {
+                  "type": "object",
+                  "properties": {
+                    "rate_limiting_enabled": {
+                      "type": "string"
+                    },
+                    "request_limits": {
+                      "type": "object",
+                      "properties": {
+                        "write": {
+                          "type": "object",
+                          "properties": {
+                            "net": {
+                              "type": "string"
+                            },
+                            "orchestration": {
+                              "type": "string"
+                            },
+                            "secsite": {
+                              "type": "string"
+                            },
+                            "storage": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "read": {
+                          "type": "object",
+                          "properties": {
+                            "net": {
+                              "type": "string"
+                            },
+                            "orchestration": {
+                              "type": "string"
+                            },
+                            "secsite": {
+                              "type": "string"
+                            },
+                            "storage": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "rabbitmq": {
+                  "type": "object",
+                  "properties": {
+                    "exclude_zk": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "hbase": {
+                  "type": "object",
+                  "properties": {
+                    "zkobserver_hostnames": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "compute_service_manager": {
+                  "type": "object",
+                  "properties": {
+                    "nimbula_admin": {
+                      "type": "string"
+                    },
+                    "nimbula_admin_pass": {
+                      "type": "string"
+                    },
+                    "frontendurl": {
+                      "type": "string",
+                      "pattern": "^(\\d{1,3}\\.){3}(\\d{1,3}):(\\d{1,5})$"
+                    },
+                    "oid_url": {
+                      "type": "string"
+                    },
+                    "oid_user": {
+                      "type": "string"
+                    },
+                    "oid_pass": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "config_prod_options",
+    "site_type",
+    "install_json"
+  ]
+}
+
