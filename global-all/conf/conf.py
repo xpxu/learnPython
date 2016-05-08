@@ -1,3 +1,4 @@
 g_filter = False
 
-name = 'xp'
+print 'conf is called'
+
