@@ -1,0 +1,6 @@
+{
+    "email": "test@orm.org", 
+    "password": "my-pwd", 
+    "id": 12345, 
+    "name": "Michael"
+}

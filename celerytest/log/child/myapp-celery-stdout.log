@@ -1,0 +1,43 @@
+[2016-05-23 07:05:20,754: WARNING/MainProcess] /home/xpxu/study-use/python27-virtualenv/lib/python2.7/site-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+[2016-05-23 07:05:21,867: WARNING/MainProcess] celery@slc09wqk ready.
+[2016-05-23 07:06:08,777: WARNING/Worker-3] sending mail to celery@python.org...
+[2016-05-23 07:06:10,780: WARNING/Worker-3] mail sent.
+[2016-05-23 07:10:26,483: WARNING/MainProcess] Stale pidfile exists. Removing it.
+[2016-05-23 07:10:26,488: WARNING/MainProcess] /home/xpxu/study-use/python27-virtualenv/lib/python2.7/site-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+[2016-05-23 07:10:27,608: WARNING/MainProcess] celery@slc09wqk ready.

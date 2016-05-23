@@ -1,0 +1,24 @@
+# tasks.py
+import time
+from datatime import timedelta
+from celery import Celery
+
+app = Celery('myapp', broker='redis://localhost:6379/0')
+
+# app configuration
+app.conf.update(
+    CELERYBEAT_SCHEDULE = {
+        'sendmail-every-30-seconds': {
+            'task': 'tasks.sendmail',
+            'schedule': timedelta(seconds=30),
+            'kwargs': {'to': 'xp.xu@python.org'}
+        },
+    },
+    CELERY_TIMEZONE = 'UTC'
+)
+
+@app.task
+def sendmail(mail):
+    print('sending mail to %s...' % mail['to'])
+    time.sleep(2.0)
+    print('mail sent.')
