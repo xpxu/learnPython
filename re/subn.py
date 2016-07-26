@@ -4,23 +4,20 @@ import re
 
 def suppress_keys(context_info, keys):
     '''
-    For security reasons, suppress value of keys from the string which
-    represent context releted informaition. The key/value is in unicode
-    format, like below:
+    For security reasons, hide values of keys from the string which
+    represents context related informaition. The key/value is in unicode
+    format, likes below:
 
             u'zfs_password': u'xenbuild'
 
-    The targeted keys' valude will be replaced to empty('').
+    The targeted key's value will be replaced to empty('').
     '''
     for key in keys:
         regex = r"u'%s': u'[^']*'" % key
         newstring = "u'%s': u''" % key
-        print regex
-        print newstring
         context_info = re.sub(regex, newstring, context_info)
-        print context_info 
-        #print number
-        #print context_info
+    return context_info
 
 
-suppress_keys(mystring, ['zfs_password'])
+result = suppress_keys(mystring, ['zfs_user'])
+print result
