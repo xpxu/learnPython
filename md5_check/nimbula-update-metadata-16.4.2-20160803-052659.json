@@ -1,0 +1,57 @@
+{
+    "service_restart_order": [
+        {
+            "level": "admin",
+            "name": "Step 0 (bdatabaseshim,bdns_0)",
+            "priority": "P0",
+            "services": "bdatabaseshim,bdns_0",
+            "threads": "2"
+        },
+        {
+            "level": "guest",
+            "name": "Step 1 (dns_0)",
+            "priority": "P1",
+            "services": "bdns_0"
+        },
+        {
+            "name": "Step 2 (bdns_1)",
+            "priority": "P2",
+            "services": "bdns_1"
+        },
+        {
+            "level": "admin",
+            "name": "Step 3 (all site level others)",
+            "priority": "P3",
+            "services": "@numnodes,@fractionofnodes,-bdatabaseshim,-backend-nginx,-frontend-nginx",
+            "threads": "2"
+        },
+        {
+            "name": "Step 4 (all node others)",
+            "priority": "P4",
+            "services": "@allnodes,-firewall,-bnode"
+        },
+        {
+            "name": "Step 5 (all_cluster others)",
+            "priority": "P5",
+            "services": "@numnodespercluster,-bdns_0,-bdns_1",
+            "threads": "2"
+        },
+        {
+            "name": "Step 6 (backend-nginx)",
+            "priority": "P6",
+            "services": "backend-nginx",
+            "threads": "2"
+        },
+        {
+            "name": "Step 7 (frontend-nginx)",
+            "priority": "P7",
+            "services": "frontend-nginx",
+            "threads": "2"
+        },
+        {
+            "name": "Step 8 (firewall,bnode)",
+            "priority": "P8",
+            "services": "firewall,bnode"
+        }
+    ]
+}

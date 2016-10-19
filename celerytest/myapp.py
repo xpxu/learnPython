@@ -10,7 +10,7 @@ app.conf.update(
     CELERYBEAT_SCHEDULE = {
         'sendmail-every-3-seconds': {
             'task': 'myapp.sendmail',
-            'schedule': timedelta(seconds=3),
+            'schedule': timedelta(seconds=0.1),
             'args': [dict(to='xp.xu@python.org')]
         },
     },

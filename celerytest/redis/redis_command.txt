@@ -1,0 +1,7 @@
+RPUSH   mydb:numberlist one two three
+SADD    mydb:numberset one two three
+ZADD    mydb:sortednumberset 1000 one 2000 two 3000 three
+HMSET   mydb:article:4 title 'Hello World' id 4
+SET     mydb:numvisits 34
+SET     mydb:volatile 'nothing important'
+EXPIRE  mydb:volatile 3600
