@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys, os, time, atexit
-from signal import SIGTERM 
+from simplesignal import SIGTERM
 
 class Daemon:
 	"""

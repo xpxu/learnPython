@@ -1,9 +1,9 @@
 import functools
 
 def info(fun):
-    @functools.wraps(fun)
+    # @functools.wraps(fun)
     def wrapper(*args, **kwargs):
-        print 'Kobe'
+        print 'Kobe',
         fun(*args, **kwargs)
         print 'superstar!'
     return wrapper
@@ -12,18 +12,18 @@ def info(fun):
 
 @info
 def connect1(s1):
-    print s1
+    print s1,
 
 @info
 def connect2(s1, s2):
-    print s1
-    print s2
+    print s1,
+    print s2,
 
 @info
 def connect3(s1, s2, s3):
-    print s1
-    print s2
-    print s3
+    print s1,
+    print s2,
+    print s3,
 
 
 print 'connect 1---------------'
